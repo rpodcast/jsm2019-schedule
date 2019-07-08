@@ -7,8 +7,8 @@ library(lubridate)
 library(shinythemes)
 
 # Load data ---------------------------------------------------------
-jsm_sessions <- read_csv("data/jsm2018_sessions.csv")
-jsm_talks <- read_csv("data/jsm2018_talks.csv")
+jsm_sessions <- read_csv("data/jsm2019_sessions.csv")
+jsm_talks <- read_csv("data/jsm2019_talks.csv")
 
 # Create lists for use later ----------------------------------------
 sponsors <- glue_collapse(jsm_sessions$sponsor, sep = ", ") %>%
@@ -34,7 +34,7 @@ types <- c(
 # UI ----------------------------------------------------------------
 ui <- navbarPage(
   theme = shinytheme("cosmo"),
-  "JSM 2018",
+  "JSM 2019",
   
   # Tab 1: Session schedule -----------------------------------------
   tabPanel("Session Schedule",
@@ -49,13 +49,13 @@ ui <- navbarPage(
                  "day",
                  "Day",
                  choices = c(
-                   "Fri, Jul 27" = "Fri",
-                   "Sat, Jul 28" = "Sat",
-                   "Sun, Jul 29" = "Sun",
-                   "Mon, Jul 30" = "Mon",
-                   "Tue, Jul 31" = "Tue",
-                   "Wed, Aug 1"  = "Wed",
-                   "Thu, Aug 2"  = "Thu"
+                   "Fri, Jul 26" = "Fri",
+                   "Sat, Jul 27" = "Sat",
+                   "Sun, Jul 28" = "Sun",
+                   "Mon, Jul 29" = "Mon",
+                   "Tue, Jul 30" = "Tue",
+                   "Wed, Jul 31"  = "Wed",
+                   "Thu, Aug 1"  = "Thu"
                  ),
                  selected = wday(Sys.Date(), label = TRUE, abbr = TRUE)
                ),
